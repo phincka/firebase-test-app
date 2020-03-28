@@ -1,0 +1,31 @@
+.grid {
+	margin: 0 auto;
+
+	@include media($desktop, max) {
+		width: calc(100% - 80px);
+	}
+
+	@include media($mobile, max) {
+		width: calc(100% - 5px);
+	}
+
+	@include media($desktop, min) {
+		width: $gridWidth;
+	}
+}
+
+.header-grid {
+	margin: 0 auto;
+
+	@include media($desktop, max) {
+		width: calc(100% - 0px);
+	}
+
+	@include media($phone, max) {
+		width: calc(100% - 0px);
+	}
+
+	@include media($desktop, min) {
+		width: $projectWidth;
+	}
+}

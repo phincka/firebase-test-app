@@ -1,0 +1,39 @@
+$OpenFont: 'Open Sans', sans-serif;
+$RalFont: 'Raleway', sans-serif;
+
+
+/* Colors */
+$primaryColor: #1b454f;
+$secondaryColor: #fff;
+$hoverColor: #00828f;
+$buttonColor: #f4e409;
+
+
+/* Breakpoints */
+$minPhone: 450px;
+$phone: 600px;
+$minTablet: 690px;
+$tablet: 769px;
+$minLaptop: 1024px;
+$laptop: 1260px;
+$desktop: 1400px;
+
+/* Mobile nav breakpoint */
+$mobile: 800px;
+
+/* Define with of layout to recalculate vw */
+$projectWidth: 1920px;
+$gridWidth: $desktop;
+
+
+/* Libraries */
+@import 'lib/reset';
+@import 'lib/mixins';
+@import 'lib/grid';
+@import 'lib/typography';
+
+
+/* Template styles */
+
+@import './header';
+@import './footer';

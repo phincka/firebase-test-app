@@ -1,0 +1,137 @@
+/*
+* Text mixins
+*/
+@mixin fontStyle($color, $fontSize, $fontWeight, $align: null) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    text-align: $align;      
+}
+@mixin fontStyleExt($color, $fontSize, $fontWeight, $lineH, $letterS) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    line-height: $lineH;  
+    letter-spacing: $letterS;
+}
+/*
+* Flex mixins
+*/
+@mixin start($direction: null){
+    display: flex;
+    justify-content: flex-start;
+    @if ($direction == 'c'){
+        align-items: center;
+    }
+}
+@mixin end($direction: null){
+    display: flex;
+    justify-content: flex-end;
+    @if ($direction == 'c'){
+        align-items: center;
+    }
+}
+@mixin flexLine($align: null) {
+    display: flex;
+    justify-content: space-between;
+    @if $align == 'center' {
+        align-items: center;
+    }
+}
+@mixin center($type: flex) {
+	@if $type=='flex' {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@else if $type=='margin' {
+		margin: 0 auto;
+	}
+
+	@else {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+/*
+* Burger menu
+*/
+@mixin line-menu {
+  width: 100%;
+  height: 3px;
+  background-color: $secondaryColor;
+  position: absolute;
+}
+/*
+* Sets element media query
+*/
+@mixin media($breakpoint, $type: max) {
+	@media screen and (#{$type}-width: #{$breakpoint}) {
+		@content;
+	}
+}
+/*
+* Px to vw calculator
+* Remember to define your laytout width in _app.scss
+*/
+@function vw($px) {
+	$vw: ($projectWidth * 0.01) * 1px;
+	@return ($px / $vw) * 1vw;
+}
+
+
+/*
+* Hompegate rooms pseudoelements style
+*/
+@mixin h-r-pseudo(){
+  &::before{
+    content: '';
+    position: relative;
+    display: grid;
+    grid-area: 1 / 1 / 3 / 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: $hoverColor;
+    opacity: 0.5;
+    transition: .5s;
+  }
+  &:hover{
+    &::before{
+      opacity: .2;
+    }
+  }
+}
+@mixin h-r-position(){
+  padding-left: 50px;
+  position: relative;
+}
+
+@mixin button() {
+    @include fontStyle($primaryColor, 1.2rem, 700, center);
+    border-radius: 20px;
+    background-color: $buttonColor;
+    display: block;
+    margin: 0 auto;
+      a{
+        display: block;
+        padding: 8px 40px;
+      }
+}
+/*
+* Header lines style
+*/
+
+@mixin header-line($height, $color, $time){
+  content: '';
+  display: block;
+  width: 100%;
+  height: $height;
+  background: $color;
+  transform: scaleX(0);										
+  transform-origin: 0;
+  transition: transform $time;
+}
