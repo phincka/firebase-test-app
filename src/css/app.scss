@@ -37,3 +37,12 @@ $gridWidth: $desktop;
 
 @import './header';
 @import './footer';
+
+button{
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 10px;
+}
+body{
+  margin: 40px;
+}
